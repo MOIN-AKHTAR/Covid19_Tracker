@@ -1,0 +1,20 @@
+.Navbar{
+    height:70px;
+    background-color: #c8c8c8;
+    padding: 0.5rem 1rem;
+}
+.Navbar>img{
+    height: 100%;
+    color: #FFF;
+    margin-left: 3rem;
+}
+
+@media (max-width: 500px){
+    .Navbar{
+        padding: 0.5rem 0rem;
+        height: 50px;
+    }
+    .Navbar>img{
+        margin-left:1rem;
+    }
+}

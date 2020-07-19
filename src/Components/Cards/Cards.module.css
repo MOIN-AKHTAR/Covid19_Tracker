@@ -1,0 +1,52 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 210px;
+}
+.infected{
+    border-bottom: 10px solid rgba(0,0,255,0.5);
+    transition: all 0.5s ease-in-out;
+}
+.recovered{
+    border-bottom: 10px solid rgba(0,255,0,0.5);
+    transition: all 0.5s ease-in-out;
+}
+.deaths{
+    border-bottom: 10px solid rgba(255,0,0,0.5);
+    transition: all 0.5s ease-in-out;
+}
+
+.infected:hover{
+    border-top: 10px solid rgba(0,0,255,0.5);
+    border-bottom: none;
+}
+.recovered:hover{
+    border-top: 10px solid rgba(0,255,0,0.5);
+    border-bottom: none;
+}
+.deaths:hover{
+    border-top: 10px solid rgba(255,0,0,0.5);
+    border-bottom: none;
+}
+.deaths:hover>h3{
+    color: rgba(255,0,0,0.5);
+    font-size: 1.7rem;
+}
+.recovered:hover>h3{
+    color:rgba(0,255,0,0.5);
+    font-size: 1.7rem;
+}
+.infected:hover>h3{
+    color: rgba(0,0,255,0.5);
+    font-size: 1.7rem;
+}
+ h3{
+    color: #C4C4C4;
+    margin: 0.5rem 0px;
+    transition: all 0.5s ease-in-out;
+}
+h4{
+    color: #ffbb00;
+    margin: 0.5rem 0px;
+}

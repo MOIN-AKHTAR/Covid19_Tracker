@@ -1,25 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Navbar from './Components/Navbar';
+import CountryPicker from './Components/CountryPicker';
+import Cards from './Components/Cards'
+import {fetchData} from './Api'
+import Chart from './Components/Chart'
+import Footer from './Components/Footer'
+import  Styles from './App.module.css'
 
 function App() {
+  const [data, setData] = useState("");
+  const [country, setCountry] = useState("");
+
+
+  const changeCountry=async (country)=>{
+    setCountry(country);
+    const data=await fetchData(country);
+      setData(data)
+  }
+
+  useEffect(() => {
+    let fetchCountryData=async ()=>{
+      const data=await fetchData(country);
+      setData(data)
+    }
+    fetchCountryData()
+  }, [country])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={Styles.App}>
+     <div>
+     <Navbar/>
+     <CountryPicker
+     changeCountry={changeCountry}
+     country={country}
+      />
+      <Cards
+      data={data}/>
+      <Chart 
+      data={data}
+      country={country}
+      />
+     </div>
+      <div>
+      <Footer />
+      </div>
     </div>
+
   );
 }
 
